@@ -11,4 +11,8 @@ buttonEl.addEventListener("click", function () {
 			clearInterval(timerInterval);
 		}
 	}, 1000);
+
+	document.querySelector(".section1").setAttribute("class", "hide");
+
+	document.querySelector("#section2").setAttribute("class", "show");
 });

@@ -18,7 +18,7 @@
 	top: 8px;
 	left: -250px;
 	font-size: 18px;
-	color: purple;
+	color: #007bff;
 	font-weight: bolder;
 }
 
@@ -27,6 +27,36 @@
 	margin-top: 100px;
 }
 
+h1 {
+	color: #007bff;
+}
+
 p {
 	font-weight: bold;
+}
+
+#section2 {
+	/* text-align: center; */
+	margin-top: 100px;
+	margin-left: 500px;
+}
+
+form-check-label {
+	display: block;
+	padding-left: 15px;
+	text-indent: -15px;
+}
+form-check-input {
+	width: 13px;
+	height: 13px;
+	padding: 0;
+	margin: 0;
+	vertical-align: bottom;
+	position: relative;
+	top: -1px;
+	*overflow: hidden;
+}
+
+#button2 {
+	margin-top: 20px;
 }
