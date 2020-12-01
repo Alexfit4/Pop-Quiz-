@@ -1,19 +1,8 @@
-"use scrict";
 let timeEl = document.querySelector(".time");
-let mainEl = document.getElementById("main");
-let btnEL = document.querySelector(".myButton");
-let centerTextEl = document.querySelector(".center-text");
-let divClass = document.querySelector("#TestsDiv");
+var buttonEl = document.getElementById("button");
 let secondsLeft = 61;
 
-let secondQuestionEl = document.querySelector(".secondQuestion");
-
-divClass.setAttribute("class", "hide");
-
-document.querySelector(".myButton").addEventListener("click", function () {
-	// let T = document.getElementById("TestsDiv");
-	// T.style.display = "block"; // <-- Set it to block
-
+buttonEl.addEventListener("click", function () {
 	let timerInterval = setInterval(function () {
 		secondsLeft--;
 		timeEl.textContent = "Time: " + secondsLeft;
@@ -22,11 +11,10 @@ document.querySelector(".myButton").addEventListener("click", function () {
 			clearInterval(timerInterval);
 		}
 	}, 1000);
-	//------- Hide DIV----------//
-	divClass.setAttribute("class", "show");
-	centerTextEl.setAttribute("class", "hide");
 
-	//----------------------------------------------------------//
+	document.querySelector(".section1").setAttribute("class", "hide");
+
+	document.querySelector("#section2").setAttribute("class", "show");
 
 	// function sendMessage() {
 	// 	timeEl.textContent = " ";
@@ -36,4 +24,15 @@ document.querySelector(".myButton").addEventListener("click", function () {
 	// 	imgEl.setAttribute("src", "images/image_1.jpg");
 	// 	mainEl.appendChild(imgEl);
 	// }
+});
+
+//----Section 2 --- //
+
+let secTwo = document.querySelector("#section2");
+
+document.querySelector("#section2").addEventListener("click", function () {
+	//------- Hide DIV----------//
+
+	secTwo.setAttribute("class", "hide");
+	document.querySelector("#section3").setAttribute("class", "show");
 });
