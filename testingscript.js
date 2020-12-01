@@ -16,3 +16,14 @@ buttonEl.addEventListener("click", function () {
 
 	document.querySelector("#section2").setAttribute("class", "show");
 });
+
+//----Section 2 --- //
+
+let secTwo = document.querySelector("#section2");
+
+document.querySelector("#section2").addEventListener("click", function () {
+	//------- Hide DIV----------//
+
+	secTwo.setAttribute("class", "hide");
+	document.querySelector("#section3").setAttribute("class", "show");
+});

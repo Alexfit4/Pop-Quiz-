@@ -35,7 +35,8 @@ p {
 	font-weight: bold;
 }
 
-#section2 {
+#section2,
+#section3 {
 	/* text-align: center; */
 	margin-top: 100px;
 	margin-left: 500px;
