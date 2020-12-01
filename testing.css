@@ -1,5 +1,32 @@
+.hide {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+.time {
+	position: absolute;
+	top: 8px;
+	right: -250px;
+	font-size: 18px;
+}
+
+.high-score {
+	position: absolute;
+	top: 8px;
+	left: -250px;
+	font-size: 18px;
+	color: purple;
+	font-weight: bolder;
+}
+
 .section1 {
 	text-align: center;
 	margin-top: 100px;
 }
 
+p {
+	font-weight: bold;
+}
