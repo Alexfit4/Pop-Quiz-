@@ -1,7 +1,6 @@
 .hide {
 	display: none;
 }
-
 .show {
 	display: block;
 }
@@ -60,4 +59,10 @@ form-check-input {
 
 #button2 {
 	margin-top: 20px;
+}
+
+#answer {
+	position: relative;
+	left: 150px;
+	bottom: 25px;
 }
