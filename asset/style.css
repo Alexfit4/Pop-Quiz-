@@ -5,6 +5,9 @@
 	display: block;
 }
 
+h1 {
+	color: #007bff;
+}
 .flex-container {
 	padding: 0;
 	margin: 0;
@@ -32,4 +35,8 @@
 
 .firstsection1 {
 	text-align: left;
+}
+
+input {
+	margin-right: 10px;
 }
