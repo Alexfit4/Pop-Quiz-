@@ -1,5 +1,5 @@
 // Variables //
-
+const initials = document.getElementById("initials");
 let startQuiz = document.querySelector(".startBtn");
 let instructionContainer = document.querySelector("#instructionContainer");
 let questionContainer = document.querySelector("#questionContainer");
@@ -158,3 +158,27 @@ function showResults() {
 	document.querySelector("#totalScore").innerHTML =
 		"You scored " + score + " out of 5 points";
 }
+
+let viewHighScorePage = function viewHighScorePage() {
+	resultContainer.style.display = "none";
+	document.getElementById("highScorePage").style.display = "block";
+
+	let a = document.getElementById("initials").value.trim();
+
+	$("ol").append(
+		initials.value +
+			" Final Score " +
+			score +
+			" out of 5, with " +
+			remainingTime +
+			" remaining" +
+			"<br>"
+	);
+	(" seconds remaining");
+};
+
+document.querySelector(".formBtn").addEventListener("click", viewHighScorePage);
+
+const highScorePage = document.getElementById("highScorePage");
+const highScoreList = document.getElementById("highScoreList");
+const highScore = JSON.parse(localStorage.getItem("score")) || [];

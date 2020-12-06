@@ -19,7 +19,7 @@
 		<!--------------------------- MY CSS --------------------------->
 		<link rel="stylesheet" href="./asset/style.css" />
 
-		<title>Hello, world!</title>
+		<title>Pop Quiz!</title>
 	</head>
 	<body>
 		<!-- NAV BAR LAYOUT -->
@@ -70,7 +70,12 @@
 				<form>
 					<div class="row">
 						<div class="col">
-							<input type="text" class="form-control" placeholder="Initials" />
+							<input
+								id="initials"
+								type="text"
+								class="form-control"
+								placeholder="Initials"
+							/>
 						</div>
 						<div class="col">
 							<p id="totalScore"></p>
@@ -78,6 +83,18 @@
 					</div>
 				</form>
 				<button class="formBtn btn btn-primary btn-lg">Submit</button>
+			</div>
+			<div></div>
+		</div>
+
+		<!--------------------------- HIGH SCORE --------------------------->
+		<div class="d-flex justify-content-md-between">
+			<div></div>
+			<div id="highScorePage" class="middle2" style="display: none">
+				<h1>High Scores</h1>
+				<div id="initials">
+					<ol></ol>
+				</div>
 			</div>
 			<div></div>
 		</div>
