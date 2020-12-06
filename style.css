@@ -5,64 +5,31 @@
 	display: block;
 }
 
-.time {
-	position: absolute;
-	top: 8px;
-	right: -250px;
-	font-size: 18px;
-}
-
-.high-score {
-	position: absolute;
-	top: 8px;
-	left: -250px;
-	font-size: 18px;
-	color: #007bff;
-	font-weight: bolder;
-}
-
-.section1 {
-	text-align: center;
-	margin-top: 100px;
-}
-
-h1 {
-	color: #007bff;
-}
-
-p {
-	font-weight: bold;
-}
-
-#section2,
-#section3 {
-	/* text-align: center; */
-	margin-top: 100px;
-	margin-left: 500px;
-}
-
-form-check-label {
-	display: block;
-	padding-left: 15px;
-	text-indent: -15px;
-}
-form-check-input {
-	width: 13px;
-	height: 13px;
+.flex-container {
 	padding: 0;
 	margin: 0;
-	vertical-align: bottom;
-	position: relative;
-	top: -1px;
-	*overflow: hidden;
+	list-style: none;
+	display: flex;
 }
 
-#button2 {
-	margin-top: 20px;
+.middle {
+	text-align: center;
+	padding-top: 50px;
 }
 
-#answer {
-	position: relative;
-	left: 150px;
-	bottom: 25px;
+.middle2 {
+	padding-top: 50px;
+}
+
+.questions-1 {
+	width: 70px;
+	height: 300px;
+	border: 1px solid #c3c3c3;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+}
+
+.firstsection1 {
+	text-align: left;
 }

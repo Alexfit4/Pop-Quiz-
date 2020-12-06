@@ -1,136 +1,140 @@
-let timeEl = document.querySelector(".time");
-var buttonEl = document.getElementById("button");
-let secondsLeft = 61;
-let correctAnswer = document.querySelector("#correct");
-let scoreEl = document.getElementById("score");
-let scoreLeft = 0;
+let startQuiz = document.querySelector(".startBtn");
+let instructionContainer = document.querySelector("#instructionContainer");
+let questionContainer = document.querySelector("#questionContainer");
+let resultContainer = document.querySelector("#resultContainer");
+let remainingTime = 60;
+let timerID;
+let score = 0;
+let currentQuestion = -1;
 
-let theCorrectAnswer = (correctAnswer.onclick = function () {
-	correctAnswer.style.color = "green";
-	// scoreLeft++;
-	// scoreEl.textContent = "Score: " + scoreLeft;
+const questions = [
+	{
+		question: "What is a HTML header used for?",
+		choices: [
+			"Titles or subtitles that you want to display on a webpage.",
+			"Text at the bottom of the page.",
+			"Styles your HTML",
+			"All the above",
+		],
+		correctAnswer: 0,
+	},
+	{
+		question: "What is the use for CSS?",
+		choices: [
+			"To clean your page.",
+			"To open your website on a browser.",
+			"Lets you style your website.",
+			"Lets your website be responsive.",
+		],
+		correctAnswer: 2,
+	},
+	{
+		question: "Which of the following is correct about features of JavaScript?",
+		choices: [
+			"JavaScript variable names must begin with a letter or the underscore character.",
+			"JavaScript variable names are case sensitive.",
+			"Both of the above.",
+			"None of the above.",
+		],
+		correctAnswer: 2,
+	},
+	{
+		question:
+			"Which built-in method removes the last element from an array and returns that element?",
+		choices: ["last()", "get()", "pop()", "None of the above"],
+		correctAnswer: 2,
+	},
+	{
+		question:
+			"Which built-in method returns the string representation of the number's value?",
+		choices: ["toValue()", "toNumber()", "toString()", "None of the above."],
+		correctAnswer: 2,
+	},
+];
+startQuiz.addEventListener("click", function () {
+	instructionContainer.style.display = "none";
+	questionContainer.style.display = "block";
+	showNextQuestion();
+	startTimer();
 });
 
-buttonEl.addEventListener("click", function () {
-	let timerInterval = setInterval(function () {
-		secondsLeft--;
-		timeEl.textContent = "Time: " + secondsLeft;
+function updateTime() {
+	remainingTime--;
+	document.querySelector(".time").innerHTML = "Time: " + remainingTime;
+	if (remainingTime <= 0) {
+		stopTimer();
+		alert("Time's up!");
+		showResults();
+	} else {
+	}
+}
 
-		if (secondsLeft === 0) {
-			clearInterval(timerInterval);
+function startTimer() {
+	timerID = setInterval(updateTime, 1000);
+}
+
+function stopTimer() {
+	clearInterval(timerID);
+}
+
+function checkAnswer() {
+	let answers = document.getElementsByName("question");
+	let selectedAnswer;
+
+	for (let i = 0; i < answers.length; i++) {
+		if (answers[i].checked) {
+			selectedAnswer = i;
 		}
-	}, 1000);
+	}
 
-	document.querySelector(".section1").setAttribute("class", "hide");
+	if (selectedAnswer == questions[currentQuestion].correctAnswer) {
+		alert("correct");
+		score++;
+	} else {
+		alert("wrong");
+	}
 
-	document.querySelector("#section2").setAttribute("class", "show");
-});
+	showNextQuestion();
+}
 
-//----Section 2 --- //
+questionContainer
+	.querySelector("button")
+	.addEventListener("click", checkAnswer);
 
-let secTwo = document.querySelector("#section2");
+function showNextQuestion() {
+	let question = questions[(currentQuestion += 1)];
+	let answers = [];
+	if (!question) {
+		stopTimer();
+		return showResults();
+	}
 
-let submitTwo = document
-	.querySelector("#button2")
-	.addEventListener("click", function () {
-		
-			scoreLeft++;
-			scoreEl.textContent = "Score: " + scoreLeft;
-		
-		//------- Hide DIV----------//
+	questionContainer.querySelector("h1").innerHTML = question.question;
 
-		secTwo.setAttribute("class", "hide");
-		document.querySelector("#section3").setAttribute("class", "show");
-	});
-console.log(submitTwo);
-console.log(theCorrectAnswer);
+	// for each question...
+	for (let i = 0; i < question.choices.length; i++) {
+		//add an html radio button
+		answers.push(
+			"<label>" +
+				'<input type="radio" name="question' +
+				'" value="' +
+				i +
+				'">' +
+				(i + 1) +
+				": " +
+				question.choices[i] +
+				"</label>"
+		);
+	}
 
-// ----------------------------------------///
-//--- TESTING AREA ---///
+	questionContainer.querySelector("#divChoice").innerHTML = answers.join(
+		"<br>"
+	);
+}
 
-// console.log(questions);
+function showResults() {
+	questionContainer.style.display = "none";
+	resultContainer.style.display = "block";
 
-// function getQuestion() {
-// 	console.log("We are here!");
-
-// 	var h1El = document.getElementById("question");
-// 	h1El.textContent = questions[0].question;
-// 	var divChoice = document.getElementById("divChoice");
-
-// 	divChoice.innerHTML = "";
-
-// 	var test = document.getElementById("testing");
-
-//divChoice.textContent = questions[0].choices;
-
-// for (let i = 0; i < questions[0].choices.length; i++) {
-// 	var button = document.createElement('button');
-// 	button.textContent = questions[0].choices[i]
-// 	divChoice.append(button);
-
-// 	button.onclick = checkAnswer
-
-// var divEl = document.createElement("div");
-// divEl.setAttribute("class", "form-check");
-// var input = document.createElement("input");
-// input.setAttribute("class", "form-check-input");
-// input.setAttribute("type", "radio");
-// input.setAttribute("value", questions[0].choices[i]);
-
-// var label = document.createElement("label");
-// label.setAttribute("class", "form-check-label");
-// label.textContent = questions[0].choices[i];
-// input.append(label);
-// divEl.append(input);
-
-// console.log("divEl", divEl);
-// divChoice.append(divEl);
-// test.append(divEl);
-// }
-// }
-
-// -------------------------------------------------------- //
-// getQuestion();
-
-// function sendMessage() {
-// 	timeEl.textContent = " ";
-
-// 	let imgEl = document.createElement("img");
-
-// 	imgEl.setAttribute("src", "images/image_1.jpg");
-// 	mainEl.appendChild(imgEl);
-// }
-
-// ----------------------------------------------------------//
-// let questions = [
-// 	{
-// 		question: "What is a HTML header used for?",
-// 		choices: [
-// 			"Titles or subtitles that you want to display on a webpage.",
-// 			"Text at the bottom of the page.",
-// 			"Styles your HTML",
-// 			"All the above",
-// 		],
-// 		correctAnswer: "Titles or subtitles that you want to display on a webpage.",
-// 	},
-// 	{
-// 		question: "What is the use for CSS?",
-// 		choices: [
-// 			"To clean your page.",
-// 			"To open your website on a browser.",
-// 			"Lets you style your website.",
-// 			"Lets your website be responsive.",
-// 		],
-// 		correctAnswer: "Lets you style your website.",
-// 	},
-// 	{
-// 		question: "What is a HTML header used for?",
-// 		choices: [
-// 			"Titles or subtitles that you want to display on a webpage.",
-// 			"Text at the bottom of the page.",
-// 			"Styles your HTML",
-// 			"All the above",
-// 		],
-// 		correctAnswer: "Titles or subtitles that you want to display on a webpage.",
-// 	},
-// ];
+	document.querySelector("#totalScore").innerHTML = "You scored " + score;
+}
