@@ -64,6 +64,9 @@ const questions = [
 
 // When user clicks "CLICK HERE TO START" quiz timer starts and first line of questions begin. //
 startQuiz.addEventListener("click", function () {
+	currentQuestion = -1;
+	remainingTime = 60;
+	score = 0;
 	instructionContainer.style.display = "none";
 	questionContainer.style.display = "block";
 	showNextQuestion();
@@ -160,21 +163,28 @@ function showResults() {
 		"You scored " + score + " out of 5 points";
 }
 
-let viewHighScorePage = function viewHighScorePage() {
-	resultContainer.style.display = "none";
-	document.getElementById("highScorePage").style.display = "block";
-
-	let a = document.getElementById("initials").value.trim();
+function viewHighScorePage() {
+	if (initials.value === "") {
+		alert("Please input your initials");
+		return;
+	}
 
 	let usersScore = {
-		initials: initials.value,
+		initials: initials.value.trim(),
 		score: score,
 		time: remainingTime,
 	};
 
-	// $("ol").append(scoreMessage);
-
 	window.localStorage.setItem(initials.value, JSON.stringify(usersScore));
+	totalHighScore();
+}
+
+// Shows total score page//
+function totalHighScore() {
+	resultContainer.style.display = "none";
+	instructionContainer.style.display = "none";
+	document.getElementById("highScorePage").style.display = "block";
+
 	Object.keys(localStorage).forEach(function (key) {
 		let highscore = JSON.parse(localStorage.getItem(key));
 		let scoreMessage =
@@ -184,23 +194,15 @@ let viewHighScorePage = function viewHighScorePage() {
 			" out of 5, with " +
 			highscore.time +
 			" seconds remaining";
-		$("#viewHighScore").append(scoreMessage);
+		let li = $("<li>").append(scoreMessage);
+		$("#viewHighScore").prepend(li);
 	});
-};
+}
 
-finishQuiz.addEventListener("click", viewHighScorePage, function (e) {
-	e.preventDefault();
+finishQuiz.addEventListener("click", viewHighScorePage);
 
-	let results = {
-		initials: initials.value.trim(),
-		scoreResult: score,
-	};
-
-	let storedResults = localStorage.getItem("results");
-	console.log(results);
+document.getElementById("retry").addEventListener("click", function () {
+	resultContainer.style.display = "none";
+	instructionContainer.style.display = "block";
+	document.getElementById("highScorePage").style.display = "none";
 });
-
-// TESING AREA //
-// const highScorePage = document.getElementById("highScorePage");
-// const highScoreList = document.getElementById("highScoreList");
-// const highScore = JSON.parse(localStorage.getItem("score")) || [];
