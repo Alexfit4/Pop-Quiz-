@@ -1,5 +1,6 @@
 // Variables //
 const initials = document.getElementById("initials");
+const finishQuiz = document.getElementById("finishQuiz");
 let startQuiz = document.querySelector(".startBtn");
 let instructionContainer = document.querySelector("#instructionContainer");
 let questionContainer = document.querySelector("#questionContainer");
@@ -165,20 +166,41 @@ let viewHighScorePage = function viewHighScorePage() {
 
 	let a = document.getElementById("initials").value.trim();
 
-	$("ol").append(
-		initials.value +
+	let usersScore = {
+		initials: initials.value,
+		score: score,
+		time: remainingTime,
+	};
+
+	// $("ol").append(scoreMessage);
+
+	window.localStorage.setItem(initials.value, JSON.stringify(usersScore));
+	Object.keys(localStorage).forEach(function (key) {
+		let highscore = JSON.parse(localStorage.getItem(key));
+		let scoreMessage =
+			highscore.initials +
 			" Final Score " +
-			score +
+			highscore.score +
 			" out of 5, with " +
-			remainingTime +
-			" remaining" +
-			"<br>"
-	);
-	(" seconds remaining");
+			highscore.time +
+			" seconds remaining";
+		$("#viewHighScore").append(scoreMessage);
+	});
 };
 
-document.querySelector(".formBtn").addEventListener("click", viewHighScorePage);
+finishQuiz.addEventListener("click", viewHighScorePage, function (e) {
+	e.preventDefault();
 
-const highScorePage = document.getElementById("highScorePage");
-const highScoreList = document.getElementById("highScoreList");
-const highScore = JSON.parse(localStorage.getItem("score")) || [];
+	let results = {
+		initials: initials.value.trim(),
+		scoreResult: score,
+	};
+
+	let storedResults = localStorage.getItem("results");
+	console.log(results);
+});
+
+// TESING AREA //
+// const highScorePage = document.getElementById("highScorePage");
+// const highScoreList = document.getElementById("highScoreList");
+// const highScore = JSON.parse(localStorage.getItem("score")) || [];
