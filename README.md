@@ -14,8 +14,9 @@
 ![screencapture-file-C-Users-alexa-OneDrive-Desktop-gw-hw-Pop-Quiz-index-html-2020-12-08-21_33_52](https://user-images.githubusercontent.com/69173896/101566648-52fea180-399d-11eb-90e5-6ba6c35f68b1.png)
 
 [Acknowledgments]
-Thank you for my tutor: Pa Yeng Thao
-Thank you for James Q Quick for tutorials and some help: https://www.youtube.com/channel/UC-T8W79DN6PBnzomelvqJYw
+
+- Thank you for my tutor: Pa Yeng Thao
+- Thank you for James Q Quick for tutorials and some help: https://www.youtube.com/channel/UC-T8W79DN6PBnzomelvqJYw
 
 Thanks to Johnnie Simpson, Young Ji Kim, Beatrice Ellingson, Frankie Rosado, and Rachel Wanke for their feedback, support, and brainstorming. Visit their Github pages here:
 
