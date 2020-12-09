@@ -184,7 +184,7 @@ function totalHighScore() {
 	resultContainer.style.display = "none";
 	instructionContainer.style.display = "none";
 	document.getElementById("highScorePage").style.display = "block";
-
+	$("ul").empty();
 	Object.keys(localStorage).forEach(function (key) {
 		let highscore = JSON.parse(localStorage.getItem(key));
 		let scoreMessage =
@@ -194,7 +194,7 @@ function totalHighScore() {
 			" out of 5, with " +
 			highscore.time +
 			" seconds remaining";
-		let li = $("<li>").append(scoreMessage);
+		let li = $("<li>").prepend(scoreMessage);
 		$("#viewHighScore").prepend(li);
 	});
 }
