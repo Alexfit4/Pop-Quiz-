@@ -19,7 +19,7 @@ Thank you for James Q Quick for tutorials and some help: https://www.youtube.com
 
 Thanks to Johnnie Simpson, Young Ji Kim, Beatrice Ellingson, Frankie Rosado, and Rachel Wanke for their feedback, support, and brainstorming. Visit their Github pages here:
 
-1.Johnnie Simpson - https://github.com/balokdecoy
+1. Johnnie Simpson - https://github.com/balokdecoy
 2. Young Ji Kim - https://github.com/youjmi
 3. Beatrice Ellingson - https://github.com/beatricellingson
 4. Frankie Rosado - https://github.com/Franciscorosado09
