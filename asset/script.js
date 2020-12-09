@@ -67,6 +67,7 @@ startQuiz.addEventListener("click", function () {
 	currentQuestion = -1;
 	remainingTime = 60;
 	score = 0;
+
 	instructionContainer.style.display = "none";
 	questionContainer.style.display = "block";
 	showNextQuestion();
