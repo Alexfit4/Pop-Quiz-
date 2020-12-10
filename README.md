@@ -1,8 +1,8 @@
 # Pop-Quiz-
 
 ## Inscructions:
-1. https://alexfit4.github.io/Pop-Quiz-/
-2. https://github.com/Alexfit4/Pop-Quiz-
+### https://alexfit4.github.io/Pop-Quiz-/
+### https://github.com/Alexfit4/Pop-Quiz-
 
 
 1. Design a timed quiz website.
